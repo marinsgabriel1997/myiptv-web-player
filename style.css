@@ -1,0 +1,63 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Campo de entrada */
+#m3uUrl {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background-color: #333;
+    color: white;
+}
+
+/* Botão */
+button {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    padding: 12px;
+    margin: 10px auto;
+    font-size: 16px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
+
+/* Video responsivo */
+video {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    #m3uUrl, button {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    video {
+        max-width: 100%;
+    }
+}
