@@ -1,213 +1,214 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/** Base colors */
+:root {
+  --clr-dark-a0: #000000;
+  --clr-light-a0: #ffffff;
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  /** Dark theme primary colors */
+  --clr-primary-a0: #aa0909;
+  --clr-primary-a10: #b83623;
+  --clr-primary-a20: #c5523b;
+  --clr-primary-a30: #d16c55;
+  --clr-primary-a40: #dc856f;
+  --clr-primary-a50: #e59d8a;
+
+  /** Dark theme surface colors */
+  --clr-surface-a0: #020512;
+  --clr-surface-a10: #1e2028;
+  --clr-surface-a20: #36373f;
+  --clr-surface-a30: #4f5157;
+  --clr-surface-a40: #6a6b71;
+  --clr-surface-a50: #86878b;
+
+  /** Dark theme tonal surface colors */
+  --clr-surface-tonal-a0: #371412;
+  --clr-surface-tonal-a10: #4c2a28;
+  --clr-surface-tonal-a20: #61423e;
+  --clr-surface-tonal-a30: #775a57;
+  --clr-surface-tonal-a40: #8d7471;
+  --clr-surface-tonal-a50: #a38e8b;
+
+  /** Blur effect for buttons */
+  --blur-background: rgba(0, 0, 0, 0.5);
+  --blur-effect: blur(10px);
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+/** General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--clr-surface-a0);
+  color: var(--clr-light-a0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* Estilos Gerais */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #0a0a0a;
-    color: #ffffff;
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Container Principal */
+/** Container Layout */
 .container {
-    display: flex;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--clr-surface-a10);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* Lado Esquerdo: Ações */
-.sidebar-left {
-    width: 250px;
-    background-color: #121212;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
+/** Sidebars */
+.sidebar-left,
+.sidebar-right {
+  width: 20%;
+  padding: 20px;
+  background-color: var(--clr-surface-a20);
+  overflow-y: auto;
 }
 
-.sidebar-left h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #0d47a1;
+.sidebar-left h2,
+.sidebar-right h2 {
+  margin-bottom: 20px;
+  color: var(--clr-primary-a50);
 }
 
-.sidebar-left input, .sidebar-left button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.sidebar-left input {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-.sidebar-left input::placeholder {
-    color: #666;
-}
-
-.sidebar-left button {
-    background-color: #0d47a1;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar-left button:hover {
-    background-color: #1565c0;
-}
-
-.sidebar-left ul {
-    margin-top: 20px;
-}
-
-.sidebar-left ul li {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #333;
-    transition: background-color 0.3s ease;
-}
-
-.sidebar-left ul li:hover {
-    background-color: #1e1e1e;
-}
-
-/* Centro: Vídeo */
+/** Main Content */
 .main-content {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    padding: 20px;
+  flex: 1;
+  padding: 20px;
+  background-color: var(--clr-surface-a10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .video-container {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--clr-surface-a20);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .channel-info {
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .channel-info img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #0d47a1;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .channel-info h3 {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    color: #0d47a1;
+  color: var(--clr-primary-a50);
 }
 
-#video {
-    width: 100%;
-    height: auto;
-    max-height: 80vh;
-    background-color: #000;
-    border-radius: 10px;
+video {
+  width: 100%;
+  border-radius: 10px;
 }
 
-/* Lado Direito: Lista de Canais */
-.sidebar-right {
-    width: 250px;
-    background-color: #121212;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
+/** Inputs and Buttons */
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--clr-surface-a30);
+  color: var(--clr-light-a0);
 }
 
-.sidebar-right h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #0d47a1;
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--clr-primary-a20);
+  color: var(--clr-light-a0);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--clr-primary-a30);
+}
+
+/** Playlist List */
+#playlistList {
+  list-style: none;
+}
+
+#playlistList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--clr-surface-a30);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#playlistList li:hover {
+  background-color: var(--clr-surface-a40);
+}
+
+/** Delete Button */
+#playlistList li button {
+  background-color: transparent;
+  border: none;
+  color: var(--clr-primary-a50);
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  backdrop-filter: var(--blur-effect);
+  background-color: var(--blur-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#playlistList li button:hover {
+  background-color: var(--clr-primary-a40);
+}
+
+/** Channel List */
+#channelList {
+  list-style: none;
 }
 
 #channelList li {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #333;
-    transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--clr-surface-a30);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #channelList li:hover {
-    background-color: #1e1e1e;
+  background-color: var(--clr-surface-a40);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+#channelList li img {
+  margin-right: 10px;
+}
 
-    .sidebar-left, .sidebar-right {
-        width: 100%;
-        height: auto;
-    }
-
-    .main-content {
-        order: -1; /* Coloca o vídeo no topo */
-    }
-
-    #video {
-        max-height: 50vh;
-    }
+/** Search Input */
+#searchChannel {
+  margin-bottom: 20px;
 }
