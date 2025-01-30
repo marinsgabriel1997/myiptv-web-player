@@ -1,63 +1,213 @@
-/* Estilo geral */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-    font-family: Arial, sans-serif;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Container Principal */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Lado Esquerdo: Ações */
+.sidebar-left {
+    width: 250px;
+    background-color: #121212;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.sidebar-left h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0d47a1;
+}
+
+.sidebar-left input, .sidebar-left button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.sidebar-left input {
     background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.sidebar-left input::placeholder {
+    color: #666;
+}
+
+.sidebar-left button {
+    background-color: #0d47a1;
     color: white;
-    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-left button:hover {
+    background-color: #1565c0;
+}
+
+.sidebar-left ul {
+    margin-top: 20px;
+}
+
+.sidebar-left ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-left ul li:hover {
+    background-color: #1e1e1e;
+}
+
+/* Centro: Vídeo */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
     padding: 20px;
 }
 
-/* Campo de entrada */
-#m3uUrl {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    background-color: #333;
-    color: white;
-}
-
-/* Botão */
-button {
-    display: block;
-    width: 80%;
-    max-width: 400px;
-    padding: 12px;
-    margin: 10px auto;
-    font-size: 16px;
-    background-color: #ff5722;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background-color: #e64a19;
-}
-
-/* Video responsivo */
-video {
+.video-container {
+    max-width: 800px;
     width: 100%;
-    max-width: 640px;
-    height: auto;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
-/* Ajustes para telas menores */
+.channel-info {
+    margin-bottom: 20px;
+}
+
+.channel-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #0d47a1;
+}
+
+.channel-info h3 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #0d47a1;
+}
+
+#video {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    background-color: #000;
+    border-radius: 10px;
+}
+
+/* Lado Direito: Lista de Canais */
+.sidebar-right {
+    width: 250px;
+    background-color: #121212;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.sidebar-right h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #0d47a1;
+}
+
+#channelList li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.3s ease;
+}
+
+#channelList li:hover {
+    background-color: #1e1e1e;
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
-    #m3uUrl, button {
-        width: 90%;
-        font-size: 14px;
+    .container {
+        flex-direction: column;
     }
 
-    video {
-        max-width: 100%;
+    .sidebar-left, .sidebar-right {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        order: -1; /* Coloca o vídeo no topo */
+    }
+
+    #video {
+        max-height: 50vh;
     }
 }

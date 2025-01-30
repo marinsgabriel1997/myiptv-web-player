@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reprodutor M3U</title>
+    <title>Reprodutor IPTV</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" id="m3uUrl" placeholder="Insira a URL M3U8">
-    <button onclick="playStream()">Reproduzir</button>
-    <video id="video" controls width="640" height="360"></video>
+    <div class="container">
+        <!-- Lado Esquerdo: Ações -->
+        <div class="sidebar-left">
+            <h2>Ações</h2>
+            <input type="text" id="m3uUrl" placeholder="Insira a URL M3U/M3U8">
+            <input type="file" id="m3uFile" accept=".m3u,.m3u8">
+            <button onclick="addPlaylist()">Adicionar Lista</button>
+            <ul id="playlistList"></ul>
+        </div>
 
-    <script>
-        function playStream() {
-            var video = document.getElementById('video');
-            var url = document.getElementById('m3uUrl').value;
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(url);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                    video.play();
-                });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = url;
-                video.play();
-            } else {
-                alert("Seu navegador não suporta HLS.");
-            }
-        }
-    </script>
+        <!-- Centro: Vídeo -->
+        <div class="main-content">
+            <div class="video-container">
+                <div class="channel-info">
+                    <img id="channelLogo" src="" alt="Logo do Canal">
+                    <h3 id="channelName">Nome do Canal</h3>
+                </div>
+                <video id="video" controls width="100%" height="auto"></video>
+            </div>
+        </div>
+
+        <!-- Lado Direito: Lista de Canais -->
+        <div class="sidebar-right">
+            <h2>Canais</h2>
+            <ul id="channelList"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
