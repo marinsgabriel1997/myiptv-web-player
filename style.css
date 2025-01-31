@@ -32,183 +32,131 @@
   --blur-effect: blur(10px);
 }
 
-/** General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*, 
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    font-size: 100%;
+    list-style-type: none;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  /* overflow: hidden; */
   background-color: var(--clr-surface-a0);
   color: var(--clr-light-a0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  text-align: left;
 }
 
-/** Container Layout */
-.container {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--clr-surface-a10);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-/** Sidebars */
-.sidebar-left,
-.sidebar-right {
-  width: 20%;
-  padding: 20px;
-  background-color: var(--clr-surface-a20);
-  overflow-y: auto;
-}
-
-.sidebar-left h2,
-.sidebar-right h2 {
-  margin-bottom: 20px;
-  color: var(--clr-primary-a50);
-}
-
-/** Main Content */
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background-color: var(--clr-surface-a10);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Estilos para o vídeo */
 .video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 800px;
-  background-color: var(--clr-surface-a20);
-  padding: 20px;
-  border-radius: 10px;
+  height: 100vh;
+  z-index: -1;
 }
-
-.channel-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.channel-info img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.channel-info h3 {
-  color: var(--clr-primary-a50);
-}
-
 video {
   width: 100%;
-  border-radius: 10px;
+  height: 100vh;
+  object-fit: contain;
 }
 
-/** Inputs and Buttons */
-input[type="text"],
-input[type="file"] {
+/* Estilos para o menu */
+.menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  background-color: var(--clr-surface-a10);
   padding: 10px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: var(--clr-surface-a30);
-  color: var(--clr-light-a0);
+  justify-content: flex-start;
+  backdrop-filter: var(--blur-effect);
 }
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+.menu button {
+  padding: 10px;
+  color: var(--clr-light-a0);
   background-color: var(--clr-primary-a20);
-  color: var(--clr-light-a0);
+  border: 1px solid var(--clr-primary-a40);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  margin: 0 5px;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
-
-button:hover {
+.menu button:hover {
   background-color: var(--clr-primary-a30);
 }
 
-/** Playlist List */
-#playlistList {
-  list-style: none;
-}
-
-#playlistList li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: var(--clr-surface-a30);
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#playlistList li:hover {
-  background-color: var(--clr-surface-a40);
-}
-
-/** Delete Button */
-#playlistList li button {
-  background-color: transparent;
-  border: none;
-  color: var(--clr-primary-a50);
-  font-size: 16px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+/* Estilos para as divs laterais */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--clr-surface-a20);
+  color: var(--clr-light-a0);
+  padding: 20px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
   backdrop-filter: var(--blur-effect);
-  background-color: var(--blur-background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-align: left;
+}
+.sidebar.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-#playlistList li button:hover {
-  background-color: var(--clr-primary-a40);
-}
-
-/** Channel List */
-#channelList {
-  list-style: none;
-}
-
-#channelList li {
-  display: flex;
-  align-items: center;
+/* Inputs e botões dentro das sidebars */
+.sidebar input {
+  width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  background-color: var(--clr-surface-a30);
+  margin: 10px 0;
+  border: 1px solid var(--clr-surface-a40);
+  background-color: var(--clr-surface-a10);
+  color: var(--clr-light-a0);
   border-radius: 5px;
+}
+.sidebar button {
+  padding: 10px;
+  width: 100%;
+  background-color: var(--clr-primary-a20);
+  color: var(--clr-light-a0);
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+.sidebar button:hover {
+  background-color: var(--clr-primary-a30);
 }
 
-#channelList li:hover {
-  background-color: var(--clr-surface-a40);
+/* Lista de canais e playlists */
+#channelList, #playlistList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-height: 90%;
+  overflow-y: auto;
+}
+#channelList li, #playlistList li {
+  padding: 10px;
+  background-color: var(--clr-surface-tonal-a10);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+#channelList li:hover, #playlistList li:hover {
+  background-color: var(--clr-surface-tonal-a20);
+  cursor: pointer;
 }
 
-#channelList li img {
-  margin-right: 10px;
-}
-
-/** Search Input */
-#searchChannel {
-  margin-bottom: 20px;
-}

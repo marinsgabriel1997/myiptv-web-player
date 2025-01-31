@@ -8,38 +8,35 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <!-- Lado Esquerdo: Ações -->
-      <div class="sidebar-left">
-        <h2>Ações</h2>
-        <input type="text" id="m3uUrl" placeholder="Insira a URL M3U/M3U8" />
-        <input type="file" id="m3uFile" accept=".m3u,.m3u8" />
-        <button onclick="addPlaylist()">Adicionar Lista</button>
-        <ul id="playlistList"></ul>
-      </div>
+    <!-- Vídeo de fundo -->
+    <div class="video-container">
+      <video id="video" controls autoplay></video>
+    </div>
 
-      <!-- Centro: Vídeo -->
-      <div class="main-content">
-        <div class="video-container">
-          <div class="channel-info">
-            <img id="channelLogo" src="" alt="Logo do Canal" />
-            <h3 id="channelName">Nome do Canal</h3>
-          </div>
-          <video id="video" controls width="100%" height="auto"></video>
-        </div>
-      </div>
+    <!-- Menu de alternância -->
+    <div class="menu">
+      <button onclick="toggleMenu('sidebar-left')">Ações</button>
+      <button onclick="toggleMenu('sidebar-right')">Canais</button>
+    </div>
 
-      <!-- Lado Direito: Lista de Canais -->
-      <div class="sidebar-right">
-        <h2>Canais</h2>
-        <input
-          type="text"
-          id="searchChannel"
-          placeholder="Pesquisar canal..."
-          oninput="filterChannels()"
-        />
-        <ul id="channelList"></ul>
-      </div>
+    <!-- Conteúdo expansível -->
+    <div id="sidebar-left" class="sidebar">
+      <h2>Ações</h2>
+      <input type="text" id="m3uUrl" placeholder="Insira a URL M3U/M3U8" />
+      <input type="file" id="m3uFile" accept=".m3u,.m3u8" />
+      <button onclick="addPlaylist()">Adicionar Lista</button>
+      <ul id="playlistList"></ul>
+    </div>
+
+    <div id="sidebar-right" class="sidebar">
+      <h2>Canais</h2>
+      <input
+        type="text"
+        id="searchChannel"
+        placeholder="Pesquisar canal..."
+        oninput="filterChannels()"
+      />
+      <ul id="channelList"></ul>
     </div>
 
     <script src="script.js"></script>
