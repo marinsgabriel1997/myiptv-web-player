@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reprodutor IPTV</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Vídeo de fundo -->
-    <div class="video-container">
-      <video id="video" controls autoplay></video>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reprodutor IPTV</title>
+		<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="video-container">
+			<video id="video" controls autoplay></video>
+		</div>
 
-    <!-- Menu de alternância -->
-    <div class="menu">
-      <button onclick="toggleMenu('sidebar-left')">Ações</button>
-      <button onclick="toggleMenu('sidebar-right')">Canais</button>
-    </div>
+		<div class="menu">
+			<button id="btn_sidebar-left">Carregar M3U</button>
+			<button id="btn_sidebar-right">Lista de Canais</button>
+		</div>
 
-    <!-- Conteúdo expansível -->
-    <div id="sidebar-left" class="sidebar">
-      <h2>Ações</h2>
-      <input type="text" id="m3uUrl" placeholder="Insira a URL M3U/M3U8" />
-      <input type="file" id="m3uFile" accept=".m3u,.m3u8" />
-      <button onclick="addPlaylist()">Adicionar Lista</button>
-      <ul id="playlistList"></ul>
-    </div>
+		<div id="sidebar-left" class="sidebar">
+			<h3>Selecione a fonte M3U</h3>
 
-    <div id="sidebar-right" class="sidebar">
-      <h2>Canais</h2>
-      <input
-        type="text"
-        id="searchChannel"
-        placeholder="Pesquisar canal..."
-        oninput="filterChannels()"
-      />
-      <ul id="channelList"></ul>
-    </div>
+			<div id="urlRadio">
+				<input type="radio" id="urlRaw" name="type" checked />
+				<label for="urlRaw">URL RAW</label>
+			</div>
+			<div id="arquivoRadio">
+				<input type="radio" id="arquivoM3u" name="type" />
+				<label for="arquivoM3u">ARQUIVO .m3u</label>
+			</div>
 
-    <script src="script.js"></script>
-  </body>
+			<div id="url" style="display: block">
+				<input type="text" id="m3uUrl" placeholder="Insira a URL M3U ou selecione um arquivo M3U" autocomplete="off" />
+			</div>
+
+			<div id="arquivo" style="display: none">
+				<label for="m3uFile" class="file-label">Selecionar Arquivo</label>
+				<input type="file" id="m3uFile" accept=".m3u,.m3u8" class="file-input" />
+			</div>
+
+			<ul id="playlistList"></ul>
+		</div>
+
+		<div id="sidebar-right" class="sidebar">
+			<h2>Canais</h2>
+			<input
+				type="text"
+				id="searchChannel"
+				placeholder="Pesquisar canal..."
+				autocomplete="off"
+				oninput="filterChannels()"
+			/>
+			<ul id="channelList"></ul>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
 </html>

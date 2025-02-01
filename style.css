@@ -1,162 +1,294 @@
 /** Base colors */
 :root {
-  --clr-dark-a0: #000000;
-  --clr-light-a0: #ffffff;
+	--clr-dark-a0: #000000;
+	--clr-light-a0: #ffffff;
 
-  /** Dark theme primary colors */
-  --clr-primary-a0: #aa0909;
-  --clr-primary-a10: #b83623;
-  --clr-primary-a20: #c5523b;
-  --clr-primary-a30: #d16c55;
-  --clr-primary-a40: #dc856f;
-  --clr-primary-a50: #e59d8a;
+	/** Dark theme primary colors */
+	--clr-primary-a0: #3937be;
+	--clr-primary-a10: #574bc6;
+	--clr-primary-a20: #7060ce;
+	--clr-primary-a30: #8675d5;
+	--clr-primary-a40: #9b8bdd;
+	--clr-primary-a50: #b0a1e4;
 
-  /** Dark theme surface colors */
-  --clr-surface-a0: #020512;
-  --clr-surface-a10: #1e2028;
-  --clr-surface-a20: #36373f;
-  --clr-surface-a30: #4f5157;
-  --clr-surface-a40: #6a6b71;
-  --clr-surface-a50: #86878b;
+	--clr-primary-transparent-a0: rgba(57, 55, 190, 0.5);
+	--clr-primary-transparent-a10: rgba(87, 75, 198, 0.5);
+	--clr-primary-transparent-a20: rgba(112, 96, 206, 0.5);
+	--clr-primary-transparent-a30: rgba(134, 117, 213, 0.5);
+	--clr-primary-transparent-a40: rgba(155, 139, 221, 0.5);
+	--clr-primary-transparent-a50: rgba(176, 161, 228, 0.5);
 
-  /** Dark theme tonal surface colors */
-  --clr-surface-tonal-a0: #371412;
-  --clr-surface-tonal-a10: #4c2a28;
-  --clr-surface-tonal-a20: #61423e;
-  --clr-surface-tonal-a30: #775a57;
-  --clr-surface-tonal-a40: #8d7471;
-  --clr-surface-tonal-a50: #a38e8b;
+	/** Dark theme surface colors */
+	--clr-surface-a0: #121212;
+	--clr-surface-a10: #282828;
+	--clr-surface-a20: #3f3f3f;
+	--clr-surface-a30: #575757;
+	--clr-surface-a40: #717171;
+	--clr-surface-a50: #8b8b8b;
 
-  /** Blur effect for buttons */
-  --blur-background: rgba(0, 0, 0, 0.5);
-  --blur-effect: blur(10px);
+	--clr-surface-transparent-a0: rgba(18, 18, 18, 0.5);
+	--clr-surface-transparent-a10: rgba(40, 40, 40, 0.5);
+	--clr-surface-transparent-a20: rgba(63, 63, 63, 0.5);
+	--clr-surface-transparent-a30: rgba(87, 87, 87, 0.5);
+	--clr-surface-transparent-a40: rgba(113, 113, 113, 0.5);
+	--clr-surface-transparent-a50: rgba(139, 139, 139, 0.5);
+
+	/** Dark theme tonal surface colors */
+	--clr-surface-tonal-a0: #231d40;
+	--clr-surface-tonal-a10: #393253;
+	--clr-surface-tonal-a20: #4f4867;
+	--clr-surface-tonal-a30: #66607b;
+	--clr-surface-tonal-a40: #7e7890;
+	--clr-surface-tonal-a50: #9792a5;
+
+	--clr-surface-tonal-transparent-a0: rgba(35, 29, 64, 0.5);
+	--clr-surface-tonal-transparent-a10: rgba(57, 50, 83, 0.5);
+	--clr-surface-tonal-transparent-a20: rgba(79, 72, 103, 0.5);
+	--clr-surface-tonal-transparent-a30: rgba(102, 96, 123, 0.5);
+	--clr-surface-tonal-transparent-a40: rgba(126, 120, 144, 0.5);
+	--clr-surface-tonal-transparent-a50: rgba(151, 146, 165, 0.5);
+
+	--blur-effect: blur(10px);
+
+	--clr-background-dark-transparent: rgba(0, 0, 0, 0.3);
+	--clr-border-dark-transparent: rgba(0, 0, 139, 0.3);
+	--clr-background-dark-semi-transparent: rgba(0, 0, 139, 0.1);
 }
 
-*, 
+*,
 *:after,
 *:before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
 }
-body{
-    font-size: 100%;
-    list-style-type: none;
+body {
+	font-size: 100%;
+	list-style-type: none;
 }
 
 body {
-  margin: 0;
-  /* overflow: hidden; */
-  background-color: var(--clr-surface-a0);
-  color: var(--clr-light-a0);
-  text-align: left;
+	margin: 0;
+	background-color: var(--clr-surface-a0);
+	color: var(--clr-light-a0);
+	text-align: left;
 }
 
 /* Estilos para o vídeo */
 .video-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: -1;
 }
 video {
-  width: 100%;
-  height: 100vh;
-  object-fit: contain;
+	width: 100%;
+	height: 100vh;
+	object-fit: contain;
 }
 
 /* Estilos para o menu */
 .menu {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--clr-surface-a10);
-  padding: 10px;
-  justify-content: flex-start;
-  backdrop-filter: var(--blur-effect);
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--clr-surface-a10);
+	padding: 10px;
+	justify-content: flex-start;
+	backdrop-filter: var(--blur-effect);
 }
 .menu button {
-  padding: 10px;
-  color: var(--clr-light-a0);
-  background-color: var(--clr-primary-a20);
-  border: 1px solid var(--clr-primary-a40);
-  cursor: pointer;
-  font-size: 16px;
-  margin: 0 5px;
-  border-radius: 5px;
-  transition: background 0.3s;
+	padding: 10px;
+	color: var(--clr-light-a0);
+	background-color: var(--clr-primary-a20);
+	border: 1px solid var(--clr-primary-a40);
+	cursor: pointer;
+	font-size: 16px;
+	margin: 0 5px;
+	border-radius: 5px;
+	transition: background 0.3s;
 }
 .menu button:hover {
-  background-color: var(--clr-primary-a30);
+	background-color: var(--clr-primary-a30);
 }
 
 /* Estilos para as divs laterais */
 .sidebar {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: var(--clr-surface-a20);
-  color: var(--clr-light-a0);
-  padding: 20px;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  opacity: 0;
-  visibility: hidden;
-  backdrop-filter: var(--blur-effect);
-  text-align: left;
+	position: fixed;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--clr-background-dark-transparent);
+	color: var(--clr-light-a0);
+	padding: 20px;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	opacity: 0;
+	visibility: hidden;
+	text-align: left;
 }
 .sidebar.active {
-  opacity: 1;
-  visibility: visible;
+	opacity: 1;
+	visibility: visible;
 }
-
 /* Inputs e botões dentro das sidebars */
 .sidebar input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid var(--clr-surface-a40);
-  background-color: var(--clr-surface-a10);
-  color: var(--clr-light-a0);
-  border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid var(--clr-border-dark-transparent); /* Azul escuro com transparência */
+	background-color: var(--clr-surface-tonal-a20);
+	color: var(--clr-light-a0);
+	border-radius: 5px;
+}
+::placeholder {
+	color: var(--clr-surface-a50);
+	opacity: 1; /* Firefox */
 }
 .sidebar button {
-  padding: 10px;
-  width: 100%;
-  background-color: var(--clr-primary-a20);
-  color: var(--clr-light-a0);
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
+	padding: 10px;
+	width: 100%;
+	background-color: var(--clr-primary-a20);
+	color: var(--clr-light-a0);
+	border: none;
 }
 .sidebar button:hover {
-  background-color: var(--clr-primary-a30);
+	background-color: var(--clr-primary-a30);
 }
-
 /* Lista de canais e playlists */
-#channelList, #playlistList {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  max-height: 90%;
-  overflow-y: auto;
+#channelList,
+#playlistList {
+	list-style: none;
+	padding: 0;
+	text-align: left;
+	max-height: 90%;
+	overflow-y: auto;
 }
-#channelList li, #playlistList li {
-  padding: 10px;
-  background-color: var(--clr-surface-tonal-a10);
-  margin-bottom: 5px;
-  border-radius: 5px;
-  transition: background 0.3s;
+#channelList li,
+#playlistList li {
+	padding: 10px;
+	background-color: var(--clr-surface-tonal-transparent-a10);
+	margin-bottom: 5px;
+	border-radius: 5px;
+	transition: background 0.3s;
 }
-#channelList li:hover, #playlistList li:hover {
-  background-color: var(--clr-surface-tonal-a20);
-  cursor: pointer;
+#channelList li:hover,
+#playlistList li:hover {
+	background-color: var(--clr-surface-tonal-a20);
+	cursor: pointer;
 }
 
+#playlistList li {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#playlistList li button {
+	background: none;
+	border: none;
+	color: var(--clr-light-a0);
+	cursor: pointer;
+	font-size: 16px;
+	width: auto; /* Certifique-se de que a largura não está definida */
+	transition: color 0.3s; /* Adiciona uma transição suave */
+}
+
+#playlistList li button:hover {
+	color: var(--clr-light-a50); /* Ajuste a cor para um tom mais escuro ao passar o mouse */
+}
+/* Estilizando o input de arquivo */
+.file-input {
+	display: none; /* Esconde o input de arquivo original */
+}
+
+.file-label {
+	display: inline-block;
+	color: var(--clr-light-a0);
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 5px;
+	transition: background 0.3s;
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid var(--clr-border-dark-transparent);
+	background-color: var(--clr-surface-tonal-a20);
+	color: var(--clr-light-a0);
+	border-radius: 5px;
+}
+.file-label:hover {
+	background-color: var(--clr-primary-a30);
+}
+.error-message {
+	color: var(--clr-light-a0);
+	background-color: var(--clr-primary-a20);
+	padding: 10px;
+	border-radius: 5px;
+	margin: 10px 0;
+	display: none; /* Inicialmente escondido */
+}
+
+#urlRadio,
+#arquivoRadio {
+	display: flex;
+	align-items: center;
+}
+
+#urlRaw,
+#arquivoM3u {
+	width: auto;
+	margin-right: 6px;
+}
+
+/* <!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reprodutor IPTV</title>
+		<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="video-container">
+			<video id="video" controls autoplay></video>
+		</div>
+
+		<div class="menu">
+			<button onclick="toggleMenu('sidebar-left')">Carregar M3U</button>
+			<button onclick="toggleMenu('sidebar-right')">Lista de Canais</button>
+		</div>
+
+		<div id="sidebar-left" class="sidebar">
+			<h3>Selecione a fonte M3u</h3>
+
+			<div id="urlRadio"><input type="radio" id="urlRaw" name="type" checked onclick="changeType()" /> <span>URL RAW</span></div>
+			<div id="arquivoRadio"><input type="radio" id="arquivoM3u" name="type" onclick="changeType()" /> <span>ARQUIVO .m3u</span></div>
+
+			<div id="url" style="display: block">
+				<input type="text" id="m3uUrl" placeholder="Insira a URL M3U ou selecione um arquivo M3U" autocomplete="off" />
+			</div>
+
+			<div id="arquivo" style="display: none">
+				<label for="m3uFile" class="file-label">Selecionar Arquivo</label>
+				<input type="file" id="m3uFile" accept=".m3u,.m3u8" class="file-input" />
+			</div>
+
+			<ul id="playlistList"></ul>
+		</div>
+
+		<div id="sidebar-right" class="sidebar">
+			<h2>Canais</h2>
+			<input type="text" id="searchChannel" placeholder="Pesquisar canal..." autocomplete="off" oninput="filterChannels()" />
+			<ul id="channelList"></ul>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html> */
