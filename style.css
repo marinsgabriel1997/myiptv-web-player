@@ -1,9 +1,7 @@
-/** Base colors */
 :root {
 	--clr-dark-a0: #000000;
 	--clr-light-a0: #ffffff;
 
-	/** Dark theme primary colors */
 	--clr-primary-a0: #3937be;
 	--clr-primary-a10: #574bc6;
 	--clr-primary-a20: #7060ce;
@@ -18,7 +16,6 @@
 	--clr-primary-transparent-a40: rgba(155, 139, 221, 0.5);
 	--clr-primary-transparent-a50: rgba(176, 161, 228, 0.5);
 
-	/** Dark theme surface colors */
 	--clr-surface-a0: #121212;
 	--clr-surface-a10: #282828;
 	--clr-surface-a20: #3f3f3f;
@@ -33,7 +30,6 @@
 	--clr-surface-transparent-a40: rgba(113, 113, 113, 0.5);
 	--clr-surface-transparent-a50: rgba(139, 139, 139, 0.5);
 
-	/** Dark theme tonal surface colors */
 	--clr-surface-tonal-a0: #231d40;
 	--clr-surface-tonal-a10: #393253;
 	--clr-surface-tonal-a20: #4f4867;
@@ -75,7 +71,6 @@ body {
 	text-align: left;
 }
 
-/* Estilos para o vídeo */
 .video-container {
 	position: fixed;
 	top: 0;
@@ -90,7 +85,6 @@ video {
 	object-fit: contain;
 }
 
-/* Estilos para o menu */
 .menu {
 	display: flex;
 	position: fixed;
@@ -117,7 +111,6 @@ video {
 	background-color: var(--clr-primary-a30);
 }
 
-/* Estilos para as divs laterais */
 .sidebar {
 	position: fixed;
 	top: 60px;
@@ -136,19 +129,19 @@ video {
 	opacity: 1;
 	visibility: visible;
 }
-/* Inputs e botões dentro das sidebars */
+
 .sidebar input {
 	width: 100%;
 	padding: 10px;
 	margin: 10px 0;
-	border: 1px solid var(--clr-border-dark-transparent); /* Azul escuro com transparência */
+	border: 1px solid var(--clr-border-dark-transparent);
 	background-color: var(--clr-surface-tonal-a20);
 	color: var(--clr-light-a0);
 	border-radius: 5px;
 }
 ::placeholder {
 	color: var(--clr-surface-a50);
-	opacity: 1; /* Firefox */
+	opacity: 1;
 }
 .sidebar button {
 	padding: 10px;
@@ -160,7 +153,7 @@ video {
 .sidebar button:hover {
 	background-color: var(--clr-primary-a30);
 }
-/* Lista de canais e playlists */
+
 #channelList,
 #playlistList {
 	list-style: none;
@@ -195,16 +188,16 @@ video {
 	color: var(--clr-light-a0);
 	cursor: pointer;
 	font-size: 16px;
-	width: auto; /* Certifique-se de que a largura não está definida */
-	transition: color 0.3s; /* Adiciona uma transição suave */
+	width: auto;
+	transition: color 0.3s;
 }
 
 #playlistList li button:hover {
-	color: var(--clr-light-a50); /* Ajuste a cor para um tom mais escuro ao passar o mouse */
+	color: var(--clr-light-a50);
 }
-/* Estilizando o input de arquivo */
+
 .file-input {
-	display: none; /* Esconde o input de arquivo original */
+	display: none;
 }
 
 .file-label {
@@ -231,7 +224,7 @@ video {
 	padding: 10px;
 	border-radius: 5px;
 	margin: 10px 0;
-	display: none; /* Inicialmente escondido */
+	display: none;
 }
 
 #urlRadio,
@@ -245,50 +238,3 @@ video {
 	width: auto;
 	margin-right: 6px;
 }
-
-/* <!DOCTYPE html>
-<html lang="pt">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Reprodutor IPTV</title>
-		<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="video-container">
-			<video id="video" controls autoplay></video>
-		</div>
-
-		<div class="menu">
-			<button onclick="toggleMenu('sidebar-left')">Carregar M3U</button>
-			<button onclick="toggleMenu('sidebar-right')">Lista de Canais</button>
-		</div>
-
-		<div id="sidebar-left" class="sidebar">
-			<h3>Selecione a fonte M3u</h3>
-
-			<div id="urlRadio"><input type="radio" id="urlRaw" name="type" checked onclick="changeType()" /> <span>URL RAW</span></div>
-			<div id="arquivoRadio"><input type="radio" id="arquivoM3u" name="type" onclick="changeType()" /> <span>ARQUIVO .m3u</span></div>
-
-			<div id="url" style="display: block">
-				<input type="text" id="m3uUrl" placeholder="Insira a URL M3U ou selecione um arquivo M3U" autocomplete="off" />
-			</div>
-
-			<div id="arquivo" style="display: none">
-				<label for="m3uFile" class="file-label">Selecionar Arquivo</label>
-				<input type="file" id="m3uFile" accept=".m3u,.m3u8" class="file-input" />
-			</div>
-
-			<ul id="playlistList"></ul>
-		</div>
-
-		<div id="sidebar-right" class="sidebar">
-			<h2>Canais</h2>
-			<input type="text" id="searchChannel" placeholder="Pesquisar canal..." autocomplete="off" oninput="filterChannels()" />
-			<ul id="channelList"></ul>
-		</div>
-
-		<script src="script.js"></script>
-	</body>
-</html> */

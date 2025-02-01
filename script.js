@@ -31,14 +31,12 @@ function fetchPlaylist(url) {
 		})
 		.then((data) => {
 			const playlist = parseM3U(data);
-			playlist.name = url.split("/").pop().replace(".m3u", "");
+			playlist.name = decodeURIComponent(url.split("/").pop()).replace(".m3u", "");
 			playlists.push(playlist);
 			updatePlaylistList();
 		})
 		.catch((error) => {
-			setTimeout(() => {
-				//notificação não intrusiva sobre url incorreta
-			}, 1000);
+			console.error("Erro ao buscar a playlist:", error);
 		});
 }
 
@@ -132,8 +130,8 @@ async function updateChannelListStatus(channelList) {
 	const channelUrls = Array.from(channels).map((channel) => channel.getAttribute("data-url"));
 
 	Array.from(channels).forEach((channel) => {
-		const channelName = channel.getAttribute("data-name"); // Preserva o nome original
-		channel.textContent = channelName + " ⌛"; // Adiciona o indicador de carregamento
+		const channelName = channel.getAttribute("data-name");
+		channel.textContent = channelName + " ⌛";
 	});
 
 	const onlineStatuses = await Promise.all(channelUrls.map((url) => checkChannelOnline(url))).catch((error) => {
@@ -142,9 +140,9 @@ async function updateChannelListStatus(channelList) {
 	});
 
 	Array.from(channels).forEach((channel, index) => {
-		const channelName = channel.getAttribute("data-name"); // Preserva o nome original
+		const channelName = channel.getAttribute("data-name");
 		const statusEmoji = onlineStatuses[index] ? "✅" : "❌";
-		channel.textContent = channelName + ` ${statusEmoji}`; // Adiciona o status ao nome original
+		channel.textContent = channelName + ` ${statusEmoji}`;
 	});
 }
 
@@ -159,7 +157,7 @@ function loadChannels(playlistIndex) {
 	playlists[playlistIndex].forEach((channel) => {
 		const li = document.createElement("li");
 		li.setAttribute("data-url", channel.url);
-		li.setAttribute("data-name", channel.name); // Armazena o nome original do canal
+		li.setAttribute("data-name", channel.name);
 
 		if (channel.logo) {
 			const logo = document.createElement("img");
@@ -221,7 +219,7 @@ function filterChannels() {
 	const channels = channelList.getElementsByTagName("li");
 
 	for (let i = 0; i < channels.length; i++) {
-		const channelName = channels[i].getAttribute("data-name").toLowerCase(); // Usa o nome original do canal
+		const channelName = channels[i].getAttribute("data-name").toLowerCase();
 		channels[i].style.display = channelName.includes(searchTerm) ? "flex" : "none";
 	}
 }
